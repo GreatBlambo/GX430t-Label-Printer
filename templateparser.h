@@ -4,10 +4,29 @@
 #include <QXmlStreamReader>
 #include <QString>
 
-class TemplateParser
+template <class ReaderObject>
+class Parser
 {
 public:
-    TemplateParser();
+    void read();
+protected:
+    void findAndOperate(ReaderObject* pDerivedParser, void (ReaderObject::*pAction)(), const char * name)
+    {
+
+    };
+
+    QString _filename;
+    QXmlStreamReader xml;
+};
+
+class LabelParser : Parser<LabelParser>
+{
+public:
+    LabelParser(const QString filename);
+private:
+    void processLabel();
+    void processHeader();
+    void processField();
 };
 
 #endif // TEMPLATEPARSER_H

@@ -1,7 +1,7 @@
 #include "templateparser.h"
 
-TemplateParser::TemplateParser()
+LabelParser::LabelParser(const QString filename)
 {
-
+    _filename = filename;
 }
 
