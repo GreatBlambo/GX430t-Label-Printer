@@ -37,6 +37,7 @@ public:
     QAction *actionCopy;
     QAction *actionCut;
     QAction *actionPaste;
+    QAction *actionTemplate;
     QWidget *centralWidget;
     QTextEdit *textEdit;
     QMenuBar *menuBar;
@@ -49,7 +50,7 @@ public:
     {
         if (cmdSeeder->objectName().isEmpty())
             cmdSeeder->setObjectName(QStringLiteral("cmdSeeder"));
-        cmdSeeder->resize(400, 300);
+        cmdSeeder->resize(729, 404);
         actionNew = new QAction(cmdSeeder);
         actionNew->setObjectName(QStringLiteral("actionNew"));
         QIcon icon;
@@ -97,6 +98,8 @@ public:
         QIcon icon8;
         icon8.addFile(QStringLiteral(":/images/icons/paste.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionPaste->setIcon(icon8);
+        actionTemplate = new QAction(cmdSeeder);
+        actionTemplate->setObjectName(QStringLiteral("actionTemplate"));
         centralWidget = new QWidget(cmdSeeder);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         textEdit = new QTextEdit(centralWidget);
@@ -105,7 +108,7 @@ public:
         cmdSeeder->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(cmdSeeder);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 29));
+        menuBar->setGeometry(QRect(0, 0, 729, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -126,6 +129,7 @@ public:
         menuFile->addAction(actionSave_as);
         menuFile->addSeparator();
         menuFile->addAction(actionPrint);
+        menuFile->addAction(actionTemplate);
         menuEdit->addAction(actionUndo);
         menuEdit->addAction(actionRedo);
         menuEdit->addSeparator();
@@ -144,6 +148,8 @@ public:
         mainToolBar->addAction(actionCopy);
         mainToolBar->addAction(actionCut);
         mainToolBar->addAction(actionPaste);
+        mainToolBar->addSeparator();
+        mainToolBar->addAction(actionTemplate);
 
         retranslateUi(cmdSeeder);
 
@@ -163,6 +169,7 @@ public:
         actionCopy->setText(QApplication::translate("cmdSeeder", "Copy", 0));
         actionCut->setText(QApplication::translate("cmdSeeder", "Cut", 0));
         actionPaste->setText(QApplication::translate("cmdSeeder", "Paste", 0));
+        actionTemplate->setText(QApplication::translate("cmdSeeder", "Template", 0));
         menuFile->setTitle(QApplication::translate("cmdSeeder", "File", 0));
         menuEdit->setTitle(QApplication::translate("cmdSeeder", "Edit", 0));
     } // retranslateUi

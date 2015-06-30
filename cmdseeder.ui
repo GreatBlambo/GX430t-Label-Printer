@@ -80,6 +80,7 @@
    <addaction name="actionCut"/>
    <addaction name="actionPaste"/>
    <addaction name="separator"/>
+   <addaction name="actionTemplate"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">

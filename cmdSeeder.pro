@@ -14,15 +14,18 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         cmdseeder.cpp \
-    winsock_wrapper.cpp
+    winsock_wrapper.cpp \
+    templateparser.cpp
 
 HEADERS  += cmdseeder.h \
-    winsock_wrapper.h
+    winsock_wrapper.h \
+    templateparser.h
 
 FORMS    += cmdseeder.ui
 
 RESOURCES += \
-    icons.qrc
+    icons.qrc \
+    templates.qrc
 
 DISTFILES +=
 
