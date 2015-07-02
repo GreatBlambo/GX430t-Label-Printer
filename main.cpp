@@ -3,6 +3,7 @@
 #include "label.h"
 #include <QApplication>
 #include <QDebug>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {

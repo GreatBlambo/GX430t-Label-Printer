@@ -1,11 +1,8 @@
 <label>
     <header>
-        <font>
-        </font>
-        <size>
-        </size>
-        <content>
-        </content>
+        <font>test</font>
+        <size>test2</size>
+        <content>test3</content>
     </header>
     <column>
         <field>

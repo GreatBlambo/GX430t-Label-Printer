@@ -13,6 +13,10 @@ struct Field
 struct Column
 {
     QVector<Field> fields;
+    void addField (Field& inField)
+    {
+        fields.push_back(inField);
+    }
 };
 
 struct Header
@@ -26,13 +30,13 @@ class Label
 {
 public:
     Label();
-    Column* addColumn(); //adds column to vector and returns a pointer to it
+    void addColumn(Column& inColumn);
     void fillHeader(QString inFont, QString inFontSize, QString inContent);
 
     QString toString(); //returns the label formatted in zpl commands
-
-private:
     Header header;
+private:
+
     QVector<Column> columns;
 
     const int stickerWidth = 0; //max width of the label

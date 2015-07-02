@@ -29,8 +29,22 @@ void LabelParser::processHeader()
     qDebug("found header");
     while(xml.readNextStartElement())
     {
+        Header tempHeader;
         QString name(xml.name().toString());
-        qDebug(name.toLatin1());
+        if (name == "font")
+        {
+            tempHeader.font = xml.readElementText();
+        } else if (name == "size")
+        {
+            tempHeader.fontsize = xml.readElementText();
+        } if (name == "content")
+        {
+            tempHeader.content = xml.readElementText();
+        }
+        label->fillHeader(tempHeader.font, tempHeader.fontsize, tempHeader.content);
+        qDebug(label->header.font.toLatin1());
+        qDebug(label->header.fontsize.toLatin1());
+        qDebug(label->header.content.toLatin1());
         xml.skipCurrentElement();
     }
 }
