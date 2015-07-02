@@ -4,11 +4,19 @@
         </font>
         <size>
         </size>
-        <value>
-        </value>
+        <content>
+        </content>
     </header>
     <column>
         <field>
+            <name>
+            </name>
+            <value>
+            </value>
+        </field>
+        <field>
+            <name>
+            </name>
             <value>
             </value>
         </field>

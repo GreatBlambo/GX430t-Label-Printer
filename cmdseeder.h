@@ -48,7 +48,6 @@ private slots:
 private:
     Ui::cmdSeeder *ui;
     QString fileName;
-    bool format = false;
 };
 
 #endif // CMDSEEDER_H

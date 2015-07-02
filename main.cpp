@@ -1,5 +1,8 @@
 #include "cmdseeder.h"
+#include "templateparser.h"
+#include "label.h"
 #include <QApplication>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -12,8 +15,15 @@ int main(int argc, char *argv[])
     printf("%s\n", path);
 
     QApplication a(argc, argv);
+
+    Q_INIT_RESOURCE(templates);
     cmdSeeder pad;
     pad.show();
+
+    QFile xmlFile(":/templates/template1.xml");
+    Label label;
+    LabelParser labelParser(xmlFile, label);
+    labelParser.start();
 
     return a.exec();
 }

@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         cmdseeder.cpp \
     winsock_wrapper.cpp \
-    templateparser.cpp
+    templateparser.cpp \
+    label.cpp
 
 HEADERS  += cmdseeder.h \
     winsock_wrapper.h \
-    templateparser.h
+    templateparser.h \
+    label.h
 
 FORMS    += cmdseeder.ui
 
