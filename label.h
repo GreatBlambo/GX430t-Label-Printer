@@ -2,7 +2,7 @@
 #define LABEL_H
 
 #include <QString>
-#include <QVector>
+#include <vector>
 
 struct Field
 {
@@ -12,7 +12,7 @@ struct Field
 
 struct Column
 {
-    QVector<Field> fields;
+    std::vector<Field> fields;
     void addField (Field& inField)
     {
         fields.push_back(inField);
@@ -37,7 +37,7 @@ public:
     Header header;
 private:
 
-    QVector<Column> columns;
+    std::vector<Column> columns;
 
     const int stickerWidth = 0; //max width of the label
     const int stickerHeight = 0; //max height of the label

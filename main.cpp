@@ -4,20 +4,6 @@
 #include <QApplication>
 #include <QDebug>
 #include <iostream>
-/*
-Column ColumnTest()
-{
-    Column returnColumn;
-    Field testField;
-
-    testField.name = "TestName";
-    testField.value = "TestValue";
-
-    returnColumn.addField(testField);
-
-    return returnColumn;
-}*/
-
 
 int main(int argc, char *argv[])
 {
@@ -39,10 +25,7 @@ int main(int argc, char *argv[])
     Label label;
     LabelParser labelParser(xmlFile, label);
     labelParser.start();
-    /*
-    Column testColumn = ColumnTest();
-    qDebug(testColumn.fields.at(0).name.toLatin1());
-    */
+
     return a.exec();
 }
 
