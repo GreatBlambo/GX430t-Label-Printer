@@ -41,9 +41,9 @@ protected:
             void (ReaderObject::*pCallback)() = (tagCallbackMap[xml.name().toString()]);
             if (pCallback != NULL && xml.isStartElement())
             {
+                //qDebug(xml.name().toLatin1());
                 ((ReaderObject*)this->*(pCallback))();
             }
-            xml.skipCurrentElement();
         }
     } //runs while loop that reads tags from stream and runs a callback
 
@@ -65,8 +65,7 @@ private:
     void processLabel();
     void processHeader();
     void processColumn();
-    void processField();
-    void processValue();
+    Field processField();
 
     void setLabel(Label& inLabel);
 };

@@ -1,21 +1,27 @@
 <label>
     <header>
-        <font>test</font>
-        <size>test2</size>
-        <content>test3</content>
+        <font>fonttest</font>
+        <size>sizetest</size>
+        <content>contenttest</content>
     </header>
     <column>
         <field>
-            <name>
-            </name>
-            <value>
-            </value>
+            <name>nametest</name>
+            <value>valuetest</value>
         </field>
         <field>
-            <name>
-            </name>
-            <value>
-            </value>
+            <name>nametest2</name>
+            <value>valuetest2</value>
+        </field>
+    </column>
+    <column>
+        <field>
+            <name>nametest</name>
+            <value>valuetest</value>
+        </field>
+        <field>
+            <name>nametest2</name>
+            <value>valuetest2</value>
         </field>
     </column>
 </label>
