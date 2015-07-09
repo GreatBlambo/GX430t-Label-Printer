@@ -28,12 +28,9 @@ void LabelParser::processHeader()
     qDebug("found header");
     while(xml.readNextStartElement())
     {
-        qDebug(xml.name().toLatin1());
+        //qDebug(xml.name().toLatin1());
         QString name(xml.name().toString());
-        if (name == "font")
-        {
-            tempHeader.font = xml.readElementText();
-        } else if (name == "size")
+        if (name == "size")
         {
             tempHeader.fontsize = xml.readElementText();
         } if (name == "content")
@@ -45,7 +42,7 @@ void LabelParser::processHeader()
         //the end of the element referenced, so it doesn't qualify to be skipped)
         //also readNextStartElement() moves ahead anyway. So only call it if you don't call readNextStartElement()
     }
-    label->fillHeader(tempHeader.font, tempHeader.fontsize, tempHeader.content);
+    label->fillHeader(tempHeader.fontsize, tempHeader.content);
     //qDebug(xml.name().toLatin1());
 }
 
@@ -56,7 +53,7 @@ void LabelParser::processColumn()
     Column tempColumn;
     while(xml.readNextStartElement())
     {
-        qDebug(xml.name().toLatin1());
+        //qDebug(xml.name().toLatin1());
         QString name(xml.name().toString());
         if (name == "field")
         {
@@ -72,10 +69,10 @@ Field LabelParser::processField()
 
     qDebug("found field");
     Field tempField;
-    /*QString name(xml.name().toString());
+
     while(xml.readNextStartElement())
     {
-        //QString name(xml.name().toString());
+        QString name(xml.name().toString());
         if (name == "name")
         {
             tempField.name = xml.readElementText();
@@ -84,8 +81,7 @@ Field LabelParser::processField()
         {
             tempField.value = xml.readElementText();
         }
-    }*/
-    xml.skipCurrentElement();
+    }
     return tempField;
 }
 
