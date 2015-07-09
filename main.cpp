@@ -5,8 +5,11 @@
 #include <QApplication>
 #include <QDebug>
 #include <iostream>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b93508592c84eca06156c5aba58fc000fa36a39c
 
 int main(int argc, char *argv[])
 {
@@ -29,6 +32,7 @@ int main(int argc, char *argv[])
     LabelParser labelParser(xmlFile, label);
     labelParser.start();
 
+<<<<<<< HEAD
     QString zbl = label.toString();
     qDebug(zbl.toLatin1());
 /*
@@ -42,6 +46,8 @@ int main(int argc, char *argv[])
         send_data(printer_connection, zbl_c);
 */
 
+=======
+>>>>>>> b93508592c84eca06156c5aba58fc000fa36a39c
     return a.exec();
 }
 
