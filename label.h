@@ -38,12 +38,8 @@ public:
 
 private:
 
-<<<<<<< HEAD
     Header header;
-    QVector<Column> columns;
-=======
     std::vector<Column> columns;
->>>>>>> b93508592c84eca06156c5aba58fc000fa36a39c
 
     const int stickerWidth = 0; //max width of the label
     const int stickerHeight = 0; //max height of the label

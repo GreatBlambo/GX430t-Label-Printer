@@ -5,11 +5,6 @@
 #include <QApplication>
 #include <QDebug>
 #include <iostream>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> b93508592c84eca06156c5aba58fc000fa36a39c
 
 int main(int argc, char *argv[])
 {
@@ -32,22 +27,6 @@ int main(int argc, char *argv[])
     LabelParser labelParser(xmlFile, label);
     labelParser.start();
 
-<<<<<<< HEAD
-    QString zbl = label.toString();
-    qDebug(zbl.toLatin1());
-/*
-    QByteArray zbl_string = zbl.toLocal8Bit();
-    const char* zbl_c = zbl_string.data();
-    Connection printer_connection;
-
-    int printer_error = setup_connection_TCP(printer_connection, "172.16.216.81", 9100);
-
-    if (printer_error == 1)
-        send_data(printer_connection, zbl_c);
-*/
-
-=======
->>>>>>> b93508592c84eca06156c5aba58fc000fa36a39c
     return a.exec();
 }
 
