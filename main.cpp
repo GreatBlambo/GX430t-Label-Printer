@@ -1,6 +1,7 @@
 #include "cmdseeder.h"
 #include "templateparser.h"
 #include "label.h"
+#include "winsock_wrapper.h"
 #include <QApplication>
 #include <QDebug>
 #include <iostream>

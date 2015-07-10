@@ -1,17 +1,16 @@
 <label>
     <header>
-        <font>fonttest</font>
-        <size>sizetest</size>
-        <content>contenttest</content>
+        <size>75</size>
+        <content>HEADER TEST</content>
     </header>
     <column>
         <field>
-            <name>nametest</name>
-            <value>valuetest</value>
+            <name>SBU ID</name>
+            <value>9999999</value>
         </field>
         <field>
-            <name>nametest2</name>
-            <value>valuetest2</value>
+            <name>Name</name>
+            <value>Ray Chennnnnnnnnnnnn</value>
         </field>
     </column>
     <column>
