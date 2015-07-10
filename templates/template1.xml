@@ -5,10 +5,6 @@
     </header>
     <column>
         <field>
-            <name>SBU ID</name>
-            <value>9999999</value>
-        </field>
-        <field>
             <name>Name</name>
             <value>Ray Chennnnnnnnnnnnn</value>
         </field>
@@ -19,8 +15,12 @@
             <value>valuetest</value>
         </field>
         <field>
-            <name>nametest2</name>
-            <value>valuetest2</value>
+            <name>SBU ID</name>
+            <value>9999999</value>
+        </field>
+        <field>
+            <name>nametest</name>
+            <value>valuetest</value>
         </field>
     </column>
 </label>

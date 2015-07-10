@@ -22,8 +22,6 @@ int main(int argc, char *argv[])
     cmdSeeder pad;
     pad.show();
 
-    QFile xmlFile(":/templates/template1.xml");
-
     return a.exec();
 }
 

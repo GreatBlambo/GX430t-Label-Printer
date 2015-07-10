@@ -162,13 +162,20 @@ void cmdSeeder::on_actionTemplate_triggered()
     if(!inputFile.isEmpty())
     {
         QFile openFile(inputFile);
-        if (openFile.open(QFile::ReadOnly | QFile::Text))
-        {
-            /*Label label;
-            LabelParser labelParser(openFile, label);
-            labelParser.start();*/
-            openFile.close();
-        }
+        Label label;
+        LabelParser labelParser(openFile, label);
+        labelParser.start();
+
+        QString zbl(label.toString());
+
+        QByteArray zbl_string = zbl.toLocal8Bit();
+        const char* zbl_c = zbl_string.data();
+
+        Connection printer_connection;
+        int printer_error = setup_connection_TCP(printer_connection, "172.16.216.81", 9100);
+
+        if (printer_error == 1)
+            send_data(printer_connection, zbl_c);
     }
 
 
