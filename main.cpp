@@ -23,9 +23,6 @@ int main(int argc, char *argv[])
     pad.show();
 
     QFile xmlFile(":/templates/template1.xml");
-    Label label;
-    LabelParser labelParser(xmlFile, label);
-    labelParser.start();
 
     return a.exec();
 }

@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\cmdseeder.o
+./debug\winsock_wrapper.o
+./debug\templateparser.o
+./debug\label.o
+./debug\templateprinter.o
+./debug\qrc_icons.o
+./debug\qrc_templates.o
+./debug\moc_cmdseeder.o
+./debug\moc_templateprinter.o
+);
