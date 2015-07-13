@@ -21,12 +21,12 @@ QString Label::toString()
     QString padding_qs(padding_s.c_str());
     QString zbl("");
     QString pre("^XA^FO");
-    QString lineborder("___________________");
+    QString lineborder("__________________________________________________");
     QString preLine("^FS^FO");
     QString post("^A0,");
     post.append(header.fontsize);
     post.append("^FD");
-    QString fieldpost("^AS,40^FD");
+
 
     QString headerSpacing = header.fontsize;
     int headerSpacing_int = headerSpacing.toInt() + 10;
@@ -50,7 +50,19 @@ QString Label::toString()
 
     QString end("^XZ");
     //format columns
-    for (int i = 0; i < columns.size(); i++)
+
+    QString fieldpost("");
+    if (columns.size() == 1)
+    {
+        fieldpost.append("^A0,48");
+    }
+    else
+    {
+        fieldpost.append("^AS,40");
+    }
+    fieldpost.append("^FD");
+
+    for (unsigned int i = 0; i < columns.size(); i++)
     {
 
         Field field;
@@ -60,7 +72,7 @@ QString Label::toString()
 
         x = (i * COLUMN_WIDTH) + PADDING;
         std::string xStr = std::to_string(x);
-        for (int j = 0; j < column.fields.size(); j++)
+        for (unsigned int j = 0; j < column.fields.size(); j++)
         {
             QString fieldstring("");
 

@@ -1,26 +1,20 @@
 <label>
     <header>
-        <size>75</size>
-        <content>HEADER TEST</content>
+        <size>45</size>
+        <content>STONY BROOK UNIVERSITY-CLIENT SUPPORT</content>
     </header>
     <column>
         <field>
-            <name>Name</name>
-            <value>Ray Chennnnnnnnnnnnn</value>
-        </field>
-    </column>
-    <column>
-        <field>
-            <name>nametest</name>
-            <value>valuetest</value>
+            <name></name>
+            <value></value>
         </field>
         <field>
-            <name>SBU ID</name>
-            <value>9999999</value>
+            <name></name>
+            <value></value>
         </field>
         <field>
-            <name>nametest</name>
-            <value>valuetest</value>
+            <name></name>
+            <value></value>
         </field>
     </column>
 </label>
