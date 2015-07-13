@@ -22,11 +22,6 @@ int main(int argc, char *argv[])
     cmdSeeder pad;
     pad.show();
 
-    QFile xmlFile(":/templates/template1.xml");
-    Label label;
-    LabelParser labelParser(xmlFile, label);
-    labelParser.start();
-
     return a.exec();
 }
 

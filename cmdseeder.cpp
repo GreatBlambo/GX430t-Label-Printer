@@ -1,6 +1,8 @@
 #include "winsock_wrapper.h"
 #include "cmdseeder.h"
 #include "ui_cmdseeder.h"
+#include "templateparser.h"
+#include "label.h"
 
 cmdSeeder::cmdSeeder(QWidget *parent) :
     QMainWindow(parent),
@@ -154,11 +156,27 @@ void cmdSeeder::on_actionPaste_triggered()
 }
 void cmdSeeder::on_actionTemplate_triggered()
 {
-  ui->textEdit->setText("STONY BROOK UNIVSERSITY - CLIENT SUPPORT"
-                        "\n----------------------------------------"
-                        "\nName:"
-                        "\nSBUID:"
-                        "\nTICKET#:");
+    QString inputFile = QFileDialog::getOpenFileName(this, "Open a xml template file to print.", "",
+                                                     tr("XML files (*.xml)"));
+
+    if(!inputFile.isEmpty())
+    {
+        QFile openFile(inputFile);
+        Label label;
+        LabelParser labelParser(openFile, label);
+        labelParser.start();
+
+        QString zbl(label.toString());
+
+        QByteArray zbl_string = zbl.toLocal8Bit();
+        const char* zbl_c = zbl_string.data();
+
+        Connection printer_connection;
+        int printer_error = setup_connection_TCP(printer_connection, "172.16.216.81", 9100);
+
+        if (printer_error == 1)
+            send_data(printer_connection, zbl_c);
+    }
 
 
 }

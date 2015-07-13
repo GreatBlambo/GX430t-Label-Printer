@@ -16,14 +16,17 @@ SOURCES += main.cpp\
         cmdseeder.cpp \
     winsock_wrapper.cpp \
     templateparser.cpp \
-    label.cpp
+    label.cpp \
+    templateprinter.cpp
 
 HEADERS  += cmdseeder.h \
     winsock_wrapper.h \
     templateparser.h \
-    label.h
+    label.h \
+    templateprinter.h
 
-FORMS    += cmdseeder.ui
+FORMS    += cmdseeder.ui \
+    templateprinter.ui
 
 RESOURCES += \
     icons.qrc \
