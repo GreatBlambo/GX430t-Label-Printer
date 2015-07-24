@@ -34,18 +34,16 @@ public:
 
     QString toString(); //returns the label formatted in zpl commands
     Header getHeader();
-    QVector<Column>* getColumns();
+    std::vector<Column> *getColumns();
 
 private:
 
     Header header;
     std::vector<Column> columns;
 
-    const int stickerWidth = 0; //max width of the label
-    const int stickerHeight = 0; //max height of the label
-    static const int LINE_HEIGHT = 50;
+    static const int LINE_HEIGHT = 75;
     static const int COLUMN_WIDTH = 450;
-    static const int PADDING = 20;
+    static const int PADDING = 30;
 };
 
 #endif // LABEL_H

@@ -3,6 +3,7 @@
 #include "ui_cmdseeder.h"
 #include "templateparser.h"
 #include "label.h"
+#include "templateprinter.h"
 
 cmdSeeder::cmdSeeder(QWidget *parent) :
     QMainWindow(parent),
@@ -156,6 +157,7 @@ void cmdSeeder::on_actionPaste_triggered()
 }
 void cmdSeeder::on_actionTemplate_triggered()
 {
+/*
     QString inputFile = QFileDialog::getOpenFileName(this, "Open a xml template file to print.", "",
                                                      tr("XML files (*.xml)"));
 
@@ -177,6 +179,7 @@ void cmdSeeder::on_actionTemplate_triggered()
         if (printer_error == 1)
             send_data(printer_connection, zbl_c);
     }
-
-
+*/
+    TemplatePrinter templatePrinter;
+    templatePrinter.exec();
 }

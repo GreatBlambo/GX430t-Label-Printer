@@ -18,7 +18,9 @@ void Label::fillHeader(QString inFontSize, QString inContent)
 QString Label::toString()
 {
     std::string padding_s = std::to_string(PADDING);
+    std::string lineheight_s = std::to_string(LINE_HEIGHT);
     QString padding_qs(padding_s.c_str());
+    QString lineheight_qs(lineheight_s.c_str());
     QString zbl("");
     QString pre("^XA^FO");
     QString lineborder("__________________________________________________");
@@ -58,7 +60,7 @@ QString Label::toString()
     }
     else
     {
-        fieldpost.append("^AS,40");
+        fieldpost.append("^A0,48");
     }
     fieldpost.append("^FD");
 
@@ -76,11 +78,14 @@ QString Label::toString()
         {
             QString fieldstring("");
 
-            y = (j * LINE_HEIGHT) + headerSpacing_int + PADDING;
+            y = (j * LINE_HEIGHT) + headerSpacing_int + PADDING + PADDING;
             field = column.fields.at(j);
 
             fieldstring.append(field.name);
-            fieldstring.append(": ");
+            if (!(field.name.isEmpty()))
+            {
+                fieldstring.append(": ");
+            }
             fieldstring.append(field.value);
 
             std::string yStr = std::to_string(y);
@@ -105,4 +110,9 @@ QString Label::toString()
 Header Label::getHeader()
 {
     return header;
+}
+
+std::vector<Column>* Label::getColumns()
+{
+    return &(columns);
 }

@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 
@@ -24,20 +23,20 @@ QT_BEGIN_NAMESPACE
 class Ui_TemplatePrinter
 {
 public:
+    QAction *actionCancel;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
     QLineEdit *lineEdit_3;
-    QPushButton *Cancel;
     QPushButton *Print;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
+    QPushButton *Cancel;
 
     void setupUi(QDialog *TemplatePrinter)
     {
         if (TemplatePrinter->objectName().isEmpty())
             TemplatePrinter->setObjectName(QStringLiteral("TemplatePrinter"));
         TemplatePrinter->resize(400, 300);
+        actionCancel = new QAction(TemplatePrinter);
+        actionCancel->setObjectName(QStringLiteral("actionCancel"));
         lineEdit = new QLineEdit(TemplatePrinter);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
         lineEdit->setGeometry(QRect(80, 40, 113, 20));
@@ -47,21 +46,12 @@ public:
         lineEdit_3 = new QLineEdit(TemplatePrinter);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
         lineEdit_3->setGeometry(QRect(80, 100, 113, 20));
-        Cancel = new QPushButton(TemplatePrinter);
-        Cancel->setObjectName(QStringLiteral("Cancel"));
-        Cancel->setGeometry(QRect(220, 260, 75, 23));
         Print = new QPushButton(TemplatePrinter);
         Print->setObjectName(QStringLiteral("Print"));
-        Print->setGeometry(QRect(310, 260, 75, 23));
-        label = new QLabel(TemplatePrinter);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 40, 47, 13));
-        label_2 = new QLabel(TemplatePrinter);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(20, 70, 47, 13));
-        label_3 = new QLabel(TemplatePrinter);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(20, 100, 47, 13));
+        Print->setGeometry(QRect(300, 260, 75, 23));
+        Cancel = new QPushButton(TemplatePrinter);
+        Cancel->setObjectName(QStringLiteral("Cancel"));
+        Cancel->setGeometry(QRect(210, 260, 75, 23));
 
         retranslateUi(TemplatePrinter);
 
@@ -70,12 +60,10 @@ public:
 
     void retranslateUi(QDialog *TemplatePrinter)
     {
-        TemplatePrinter->setWindowTitle(QApplication::translate("TemplatePrinter", "Print", 0));
-        Cancel->setText(QApplication::translate("TemplatePrinter", "Cancel", 0));
+        TemplatePrinter->setWindowTitle(QApplication::translate("TemplatePrinter", "Dialog", 0));
+        actionCancel->setText(QApplication::translate("TemplatePrinter", "Cancel", 0));
         Print->setText(QApplication::translate("TemplatePrinter", "Print", 0));
-        label->setText(QApplication::translate("TemplatePrinter", "Name", 0));
-        label_2->setText(QApplication::translate("TemplatePrinter", "SBU ID", 0));
-        label_3->setText(QApplication::translate("TemplatePrinter", "Ticket #", 0));
+        Cancel->setText(QApplication::translate("TemplatePrinter", "Cancel", 0));
     } // retranslateUi
 
 };

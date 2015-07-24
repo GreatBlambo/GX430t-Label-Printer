@@ -1,5 +1,7 @@
 #include "templateparser.h"
 
+
+
 LabelParser::LabelParser(QFile& file, Label& inLabel) : Parser::Parser(file)
 {
     //set the label object
@@ -89,3 +91,5 @@ void LabelParser::setLabel(Label& inLabel)
 {
     label = &inLabel;
 }
+
+

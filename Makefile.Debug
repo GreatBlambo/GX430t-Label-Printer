@@ -16,7 +16,7 @@ CFLAGS        = -pipe -fno-keep-inline-dllexport -g -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -std=c++0x -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
 INCPATH       = -I"." -I"..\..\..\..\Qt\5.4\mingw491_32\include" -I"..\..\..\..\Qt\5.4\mingw491_32\include\QtWidgets" -I"..\..\..\..\Qt\5.4\mingw491_32\include\QtGui" -I"..\..\..\..\Qt\5.4\mingw491_32\include\QtCore" -I"debug" -I"." -I"..\..\..\..\Qt\5.4\mingw491_32\mkspecs\win32-g++" 
 LINKER      =        g++
-LFLAGS        =        -Wl,-subsystem,windows -mthreads
+LFLAGS        =        -static -Wl,-subsystem,windows -mthreads
 LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -LC:/Qt/5.4/mingw491_32/lib -lqtmaind -LC:\mingw491\mingw32\lib -LC:\Utils\icu32_53_1_mingw482\lib -LC:\utils\postgresql\pgsql\lib -LC:\utils\mysql\mysql\lib -LC:\opensll\lib -lshell32 -LC:\Qt\5.4\mingw491_32/lib -lws2_32 -lQt5Widgetsd -lQt5Guid -lQt5Cored 
 QMAKE         = C:\Qt\5.4\mingw491_32\bin\qmake.exe
 IDC           = idc
@@ -103,7 +103,7 @@ $(DESTDIR_TARGET): ui_cmdseeder.h ui_templateprinter.h $(OBJECTS)
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.cmdSeeder.Debug  $(LIBS)
 
 qmake: FORCE
-	@$(QMAKE) -spec win32-g++ CONFIG+=debug -o Makefile.Debug cmdSeeder.pro
+	@$(QMAKE) -spec win32-g++ -o Makefile.Debug cmdSeeder.pro
 
 qmake_all: FORCE
 
@@ -461,7 +461,7 @@ debug/moc_cmdseeder.cpp: ../../../../Qt/5.4/mingw491_32/include/QtWidgets/QMainW
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qvalidator.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qtguiversion.h \
 		cmdseeder.h
-	C:\Qt\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.4/mingw491_32/mkspecs/win32-g++ -IC:/Users/racchen/Desktop/Print-App -IC:/Qt/5.4/mingw491_32/include -IC:/Qt/5.4/mingw491_32/include/QtWidgets -IC:/Qt/5.4/mingw491_32/include/QtGui -IC:/Qt/5.4/mingw491_32/include/QtCore cmdseeder.h -o debug\moc_cmdseeder.cpp
+	C:\Qt\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.4/mingw491_32/mkspecs/win32-g++ -IC:/Users/racchen/Desktop/printer-app -IC:/Qt/5.4/mingw491_32/include -IC:/Qt/5.4/mingw491_32/include/QtWidgets -IC:/Qt/5.4/mingw491_32/include/QtGui -IC:/Qt/5.4/mingw491_32/include/QtCore cmdseeder.h -o debug\moc_cmdseeder.cpp
 
 debug/moc_templateprinter.cpp: ../../../../Qt/5.4/mingw491_32/include/QtWidgets/QDialog \
 		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qdialog.h \
@@ -566,8 +566,14 @@ debug/moc_templateprinter.cpp: ../../../../Qt/5.4/mingw491_32/include/QtWidgets/
 		../../../../Qt/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/QFileDialog \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qfiledialog.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/qdir.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/qfileinfo.h \
+		label.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/QString \
 		templateprinter.h
-	C:\Qt\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.4/mingw491_32/mkspecs/win32-g++ -IC:/Users/racchen/Desktop/Print-App -IC:/Qt/5.4/mingw491_32/include -IC:/Qt/5.4/mingw491_32/include/QtWidgets -IC:/Qt/5.4/mingw491_32/include/QtGui -IC:/Qt/5.4/mingw491_32/include/QtCore templateprinter.h -o debug\moc_templateprinter.cpp
+	C:\Qt\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.4/mingw491_32/mkspecs/win32-g++ -IC:/Users/racchen/Desktop/printer-app -IC:/Qt/5.4/mingw491_32/include -IC:/Qt/5.4/mingw491_32/include/QtWidgets -IC:/Qt/5.4/mingw491_32/include/QtGui -IC:/Qt/5.4/mingw491_32/include/QtCore templateprinter.h -o debug\moc_templateprinter.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1270,7 +1276,9 @@ debug/cmdseeder.o: cmdseeder.cpp winsock_wrapper.h \
 		../../../../Qt/5.4/mingw491_32/include/QtCore/QXmlStreamReader \
 		../../../../Qt/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/5.4/mingw491_32/include/QtCore/QDebug \
-		label.h
+		label.h \
+		templateprinter.h \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/QDialog
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\cmdseeder.o cmdseeder.cpp
 
 debug/winsock_wrapper.o: winsock_wrapper.cpp winsock_wrapper.h \
@@ -1563,6 +1571,12 @@ debug/templateprinter.o: templateprinter.cpp templateprinter.h \
 		../../../../Qt/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/QFileDialog \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qfiledialog.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/qdir.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/qfileinfo.h \
+		label.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/QString \
 		ui_templateprinter.h \
 		../../../../Qt/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/5.4/mingw491_32/include/QtWidgets/QAction \
@@ -1596,12 +1610,23 @@ debug/templateprinter.o: templateprinter.cpp templateprinter.h \
 		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qtabbar.h \
 		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qrubberband.h \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/QLabel \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qlabel.h \
 		../../../../Qt/5.4/mingw491_32/include/QtWidgets/QLineEdit \
 		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qlineedit.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qtextcursor.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qtextformat.h \
 		../../../../Qt/5.4/mingw491_32/include/QtGui/qpen.h \
-		../../../../Qt/5.4/mingw491_32/include/QtGui/qtextoption.h
+		../../../../Qt/5.4/mingw491_32/include/QtGui/qtextoption.h \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/QPushButton \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
+		../../../../Qt/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
+		templateparser.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/QFile \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/QXmlStreamReader \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/qxmlstream.h \
+		../../../../Qt/5.4/mingw491_32/include/QtCore/QDebug \
+		winsock_wrapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\templateprinter.o templateprinter.cpp
 
 debug/qrc_icons.o: debug/qrc_icons.cpp 

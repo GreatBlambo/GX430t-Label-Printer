@@ -1,20 +1,27 @@
 <label>
     <header>
         <size>45</size>
-        <content>STONY BROOK UNIVERSITY-CLIENT SUPPORT</content>
+        <content>STONY BROOK UNIVERSITY CLIENT SUPPORT</content>
     </header>
+
+    <column>
+        <field>
+            <name>NAME</name>
+            <value></value>
+        </field>
+        <field>
+            <name>SBU ID</name>
+            <value></value>
+        </field>
+    </column>
     <column>
         <field>
             <name></name>
             <value></value>
         </field>
         <field>
-            <name></name>
+            <name>TICKET #</name>
             <value></value>
-        </field>
-        <field>
-            <name></name>
-            <value></value>
-        </field>
+        </field>        
     </column>
 </label>

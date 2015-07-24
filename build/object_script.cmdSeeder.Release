@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\cmdseeder.o
+./release\winsock_wrapper.o
+./release\templateparser.o
+./release\label.o
+./release\templateprinter.o
+./release\qrc_icons.o
+./release\qrc_templates.o
+./release\moc_cmdseeder.o
+./release\moc_templateprinter.o
+);
